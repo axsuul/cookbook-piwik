@@ -72,7 +72,7 @@ end
   "#{install_path}/tmp/cache",
   "#{install_path}/tmp/assets",
   "#{install_path}/tmp/tcpdf",
-  "#{install_path}/tmp/config"
+  "#{install_path}/config"
 ].each do |dir|
   directory dir do
     mode 0777
