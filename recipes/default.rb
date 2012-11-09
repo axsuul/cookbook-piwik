@@ -37,9 +37,9 @@ version = node['piwik']['version']
 install_path = node['piwik']['install_path']
 tar_file = "piwik-#{version}.tar.gz"
 
-# NOTE: remote_file will uncompress to tar
+# NOTE: remote_file will uncompress to tar (fixed in later versions of Chef)
 remote_file "#{Chef::Config[:file_cache_path]}/#{tar_file}" do
-  source "http://builds.piwik.org/piwik-#{version}.tar"
+  source "http://builds.piwik.org/piwik-#{version}.tar.gz"
   mode 0644
   action :create_if_missing
 end
@@ -51,6 +51,7 @@ directory install_path do
   action :create
 end
 
+# tar xvf because not a gzip (see above)
 bash "Extract #{tar_file}" do
   user "root"
   cwd Chef::Config[:file_cache_path]
