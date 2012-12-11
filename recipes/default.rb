@@ -2,7 +2,7 @@ include_recipe "mysql::server"
 include_recipe "mysql::ruby"
 
 # Install PHP
-%w(php5-cgi php5-cli php5 php5-gd php5-mysql).each {|pkg| package pkg }
+%w(php5-cgi php5-cli php5 php5-gd php5-mysql php5-curl).each {|pkg| package pkg }
 
 # Create database
 db_connection = {
