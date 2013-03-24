@@ -14,7 +14,7 @@ db_connection = {
 mysql_database_user node['piwik']['database_user'] do
     connection db_connection
     password node['piwik']['database_password']
-    privileges [:create, :alter, :select, :insert, :update, :delete, :drop, "create temporary tables"]
+    privileges [:create, :alter, :select, :insert, :update, :delete, :drop, :file, "create temporary tables"]
     action :grant
   end
 
